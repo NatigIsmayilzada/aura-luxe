@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="az" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA LUXE | Niş Ətirlər, Lüks Saatlar və Premium Aksesuarlar</title>
+    
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        obsidian: {
+                            950: '#070709',
+                            900: '#0D0E12',
+                            800: '#15171E',
+                            700: '#1E212B',
+                        },
+                        gold: {
+                            300: '#F3DFB8',
+                            400: '#E2C285',
+                            500: '#C9A25B',
+                            600: '#A67F38',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Scrollbar & Subtle Glass Effects -->
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070709;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #282B36;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C9A25B;
+        }
+        .glass-panel {
+            background: rgba(21, 23, 30, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(226, 194, 133, 0.14);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F3DFB8 0%, #C9A25B 55%, #9B742E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: floatSlow 5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-obsidian-950 text-stone-100 font-sans antialiased selection:bg-gold-500/30 selection:text-gold-300 overflow-x-hidden">
+
+    <!-- Ambient Background Glows -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-gold-500/10 rounded-full blur-[130px]"></div>
+        <div class="absolute top-1/3 -right-32 w-[28rem] h-[28rem] bg-amber-600/10 rounded-full blur-[150px]"></div>
+        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-gold-400/5 rounded-full blur-[140px]"></div>
+    </div>
+
+    <!-- Top Announcement Bar -->
+    <div class="relative z-40 bg-gradient-to-r from-obsidian-900 via-obsidian-800 to-obsidian-900 border-b border-gold-500/15 text-xs text-stone-300 py-2 px-4 text-center">
+        <span class="text-gold-400 font-medium">✨ XÜSUSİ TƏKLİF:</span> 250 ₼ və üzəri sifarişlərdə pulsuz ekspress çatdırılma • Promo kod: <span class="font-mono bg-gold-500/15 text-gold-300 px-2 py-0.5 rounded border border-gold-500/30">VIP15</span> (15% endirim)
+    </div>
+
+    <!-- Sticky Glass Header -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-obsidian-950 font-serif font-bold text-xl shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">
+                    A
+                </div>
+                <div>
+                    <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider gold-gradient-text block leading-none">AURA LUXE</span>
+                    <span class="text-[10px] tracking-[0.28em] text-stone-400 uppercase block mt-1">Bakı • Paris • Cenevrə</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-300">
+                <a href="#kolleksiya" onclick="selectCategory('Hamısı')" class="hover:text-gold-400 transition-colors">Kolleksiya</a>
+                <a href="#kolleksiya" onclick="selectCategory('Niş Ətirlər')" class="hover:text-gold-400 transition-colors">Niş Ətirlər</a>
+                <a href="#kolleksiya" onclick="selectCategory('Lüks Saatlar')" class="hover:text-gold-400 transition-colors">Lüks Saatlar</a>
+                <a href="#kolleksiya" onclick="selectCategory('Texnologiya & Aksesuarlar')" class="hover:text-gold-400 transition-colors">Aksesuarlar</a>
+            </nav>
+
+            <!-- Search & Action Buttons -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Live Search Input (Desktop) -->
+                <div class="relative hidden lg:block w-64">
+                    <input id="desktopSearch" type="text" placeholder="Məhsul və ya brend axtar..." 
+                        class="w-full bg-obsidian-900/90 border border-white/10 focus:border-gold-500/60 rounded-full py-2 pl-9 pr-4 text-xs text-stone-200 placeholder-stone-500 focus:outline-none transition-all">
+                    <svg class="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+
+                <!-- Wishlist Toggle Button -->
+                <button onclick="toggleWishlistFilter()" id="wishlistHeaderBtn" title="Seçilmişlər" 
+                    class="relative p-2.5 rounded-full bg-obsidian-800/80 hover:bg-obsidian-700 border border-white/10 text-stone-200 hover:text-gold-400 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    <span id="wishlistBadge" class="hidden absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-500 text-white text-[10px] font-bold flex items-center justify-center">0</span>
+                </button>
+
+                <!-- Cart Drawer Trigger -->
+                <button onclick="openCart()" class="relative flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-obsidian-950 font-semibold text-xs sm:text-sm shadow-lg shadow-gold-500/20 transition-all active:scale-95">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                    </svg>
+                    <span class="hidden sm:inline">Səbət</span>
+                    <span id="cartCountBadge" class="bg-obsidian-950 text-gold-300 text-xs font-bold px-2 py-0.5 rounded-full">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 pt-10 pb-16 sm:pt-16 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            <!-- Left Editorial Copy -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/25 text-gold-300 text-xs font-medium tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+                    2026 Payız / Qış Eksklüziv Kolleksiyası
+                </div>
+                
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight text-white">
+                    Zərifliyin və <span class="gold-gradient-text italic">Nadir Zövqün</span> Yeni Ünvanı
+                </h1>
+                
+                <p class="text-stone-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                    Dünyanın ən seçilmiş niş parfüm evləri, İsveçrə mexanizmli kolleksiya saatları və məhdud sayda buraxılan premium aksesuarlar bir arada. Orijinallığa 100% zəmanət.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#kolleksiya" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 text-obsidian-950 font-semibold text-sm tracking-wide shadow-xl shadow-gold-500/20 hover:shadow-gold-500/35 hover:-translate-y-0.5 transition-all text-center">
+                        Kolleksiyanı Kəşf Et
+                    </a>
+                    <button onclick="openQuickView(1)" class="w-full sm:w-auto px-7 py-4 rounded-full glass-panel hover:border-gold-400/50 text-stone-200 font-medium text-sm flex items-center justify-center gap-2 transition-all">
+                        <span>Ayın Ulduzu: Oud Royale</span>
+                        <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Trust & Luxury Stats -->
+                <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 max-w-lg mx-auto lg:mx-0">
+                    <div>
+                        <p class="font-serif text-2xl sm:text-3xl font-bold text-gold-300">100%</p>
+                        <p class="text-xs text-stone-400 mt-0.5">Orijinal Sertifikatlı</p>
+                    </div>
+                    <div>
+                        <p class="font-serif text-2xl sm:text-3xl font-bold text-gold-300">2 Saat</p>
+                        <p class="text-xs text-stone-400 mt-0.5">Bakı Daxili Kuryer</p>
+                    </div>
+                    <div>
+                        <p class="font-serif text-2xl sm:text-3xl font-bold text-gold-300">4.9 ★</p>
+                        <p class="text-xs text-stone-400 mt-0.5">Müştəri Məmnuniyyəti</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Flagship Showcase Card -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative mx-auto max-w-md rounded-3xl p-4 glass-panel shadow-2xl shadow-black/70 animate-float">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-obsidian-900">
+                        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x1000/15171E/E2C285?text=AURA+OUD+ROYALE';"
+                             alt="Maison Aura - Oud Royale Extrait" 
+                             class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent"></div>
+                        
+                        <!-- Floating Top Tag -->
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-obsidian-950/80 backdrop-blur-md border border-gold-400/30 text-gold-300 text-xs font-medium">
+                                Məhdud Buraxılış
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-gold-500 text-obsidian-950 text-xs font-bold">
+                                -15% ENDİRİM
+                            </span>
+                        </div>
+
+                        <!-- Bottom Product Overlay -->
+                        <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl glass-panel">
+                            <div class="flex items-end justify-between gap-2">
+                                <div>
+                                    <p class="text-[11px] uppercase tracking-widest text-gold-400 font-semibold">Maison Aura Paris</p>
+                                    <h3 class="font-serif text-xl font-bold text-white mt-0.5">Oud Royale Extrait</h3>
+                                    <p class="text-xs text-stone-300 mt-1">Zəfəran • Qara Ud • Ənbər • Dəri</p>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs text-stone-400 line-through block">420 ₼</span>
+                                    <span class="text-xl font-bold text-gold-300">355 ₼</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Catalog Section -->
+    <main id="kolleksiya" class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        
+        <!-- Filter, Mobile Search & Sort Toolbar -->
+        <div class="glass-panel rounded-3xl p-4 sm:p-6 mb-10 space-y-4">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <!-- Category Pills -->
+                <div id="categoryTabs" class="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 no-scrollbar">
+                    <button onclick="selectCategory('Hamısı')" data-cat="Hamısı" class="cat-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all bg-gold-500 text-obsidian-950 shadow-md shadow-gold-500/20">
+                        Hamısı
+                    </button>
+                    <button onclick="selectCategory('Niş Ətirlər')" data-cat="Niş Ətirlər" class="cat-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all bg-obsidian-800/90 text-stone-300 hover:text-white border border-white/10">
+                        Niş Ətirlər
+                    </button>
+                    <button onclick="selectCategory('Lüks Saatlar')" data-cat="Lüks Saatlar" class="cat-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all bg-obsidian-800/90 text-stone-300 hover:text-white border border-white/10">
+                        Lüks Saatlar
+                    </button>
+                    <button onclick="selectCategory('Texnologiya & Aksesuarlar')" data-cat="Texnologiya & Aksesuarlar" class="cat-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all bg-obsidian-800/90 text-stone-300 hover:text-white border border-white/10">
+                        Texnologiya & Aksesuarlar
+                    </button>
+                </div>
+
+                <!-- Search (Mobile/Tablet) & Sort Dropdown -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <div class="relative lg:hidden flex-1">
+                        <input id="mobileSearch" type="text" placeholder="Məhsul axtar..." 
+                            class="w-full bg-obsidian-900 border border-white/10 focus:border-gold-500/60 rounded-full py-2.5 pl-9 pr-4 text-xs text-stone-200 placeholder-stone-500 focus:outline-none">
+                        <svg class="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <label for="sortSelect" class="text-xs text-stone-400 whitespace-nowrap">Sıralama:</label>
+                        <select id="sortSelect" onchange="renderProducts()" 
+                            class="bg-obsidian-900 border border-white/10 focus:border-gold-500/60 rounded-full px-4 py-2.5 text-xs sm:text-sm text-stone-200 focus:outline-none cursor-pointer">
+                            <option value="popular">Populyarlıq</option>
+                            <option value="price-asc">Qiymət: Azdan çoxa</option>
+                            <option value="price-desc">Qiymət: Çoxdan aza</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Filter Status Bar -->
+            <div class="flex items-center justify-between text-xs text-stone-400 pt-2 border-t border-white/5">
+                <span id="resultsCounter">8 eksklüziv məhsul göstərilir</span>
+                <button id="resetFiltersBtn" onclick="resetFilters()" class="hidden text-gold-400 hover:underline">
+                    Filtrləri sıfırla
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Products injected dynamically via JavaScript -->
+        </div>
+
+        <!-- Empty State (when search yields nothing) -->
+        <div id="emptyState" class="hidden text-center py-20 glass-panel rounded-3xl">
+            <div class="w-16 h-16 rounded-full bg-obsidian-800 mx-auto flex items-center justify-center text-gold-400 mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+            </div>
+            <h3 class="font-serif text-2xl text-white font-semibold">Uyğun məhsul tapılmadı</h3>
+            <p class="text-stone-400 text-sm mt-2 max-w-md mx-auto">Axtarış sözünü dəyişdirin və ya bütün kateqoriyalara yenidən nəzər yetirin.</p>
+            <button onclick="resetFilters()" class="mt-6 px-6 py-2.5 rounded-full bg-gold-500 text-obsidian-950 font-semibold text-xs">
+                Bütün Məhsulları Göstər
+            </button>
+        </div>
+    </main>
+
+    <!-- Luxury Features Banner -->
+    <section class="relative z-10 border-t border-white/10 bg-obsidian-900/70 py-14 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-panel p-6 rounded-2xl flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-gold-500/15 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-serif text-lg font-semibold text-white">Rəsmi Zəmanət və Seriya Kodu</h4>
+                    <p class="text-xs text-stone-400 mt-1.5 leading-relaxed">Hər bir məhsul rəsmi distribyutor sertifikatı və yoxlanıla bilən unikal seriya nömrəsi ilə təqdim olunur.</p>
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 rounded-2xl flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-gold-500/15 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-serif text-lg font-semibold text-white">VIP Hədiyyə Qablaşdırması</h4>
+                    <p class="text-xs text-stone-400 mt-1.5 leading-relaxed">Bütün sifarişlər xüsusi qızılı möhürlü məxmər qutuda və fərdi təbrik kartı ilə ödənişsiz qablaşdırılır.</p>
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 rounded-2xl flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-gold-500/15 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-serif text-lg font-semibold text-white">Sürətli və Təhlükəsiz Çatdırılma</h4>
+                    <p class="text-xs text-stone-400 mt-1.5 leading-relaxed">Bakı və Sumqayıt üzrə eyni gün ekspress çatdırılma, Azərbaycanın bütün bölgələrinə sığortalı göndəriş.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/10 bg-obsidian-950 py-12 px-4 sm:px-6 lg:px-8 text-stone-400 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gold-500 flex items-center justify-center text-obsidian-950 font-serif font-bold text-base">A</div>
+                <span class="font-serif text-lg font-bold gold-gradient-text">AURA LUXE</span>
+            </div>
+            <p class="text-center md:text-left">© 2026 AURA LUXE Azərbaycan. Bütün hüquqlar qorunur. Eksklüziv Onlayn Butik.</p>
+            <div class="flex items-center gap-6">
+                <a href="#kolleksiya" class="hover:text-gold-400 transition-colors">Çatdırılma Şərtləri</a>
+                <a href="#kolleksiya" class="hover:text-gold-400 transition-colors">Məxfilik</a>
+                <a href="#kolleksiya" class="hover:text-gold-400 transition-colors">Əlaqə: +994 50 000 00 00</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QUICK VIEW MODAL -->
+    <div id="quickViewModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="relative w-full max-w-3xl rounded-3xl glass-panel bg-obsidian-900/95 border border-gold-500/25 overflow-hidden shadow-2xl animate-fadeIn">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-obsidian-950/80 hover:bg-gold-500 text-stone-200 hover:text-obsidian-950 flex items-center justify-center transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            <div id="quickViewContent" class="grid grid-cols-1 md:grid-cols-2">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE-OVER SHOPPING CART DRAWER -->
+    <div id="cartOverlay" onclick="closeCart()" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm transition-opacity"></div>
+    <aside id="cartDrawer" class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-obsidian-900 border-l border-gold-500/20 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Drawer Header -->
+        <div class="p-6 border-b border-white/10 flex items-center justify-between">
+            <div>
+                <h2 class="font-serif text-xl font-bold text-white">Alış-veriş Səbəti</h2>
+                <p id="cartDrawerSubtitle" class="text-xs text-stone-400 mt-0.5">Səbətinizdə 0 məhsul var</p>
+            </div>
+            <button onclick="closeCart()" class="w-9 h-9 rounded-full bg-obsidian-800 hover:bg-obsidian-700 flex items-center justify-center text-stone-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Free Shipping Progress Bar -->
+        <div class="px-6 py-3.5 bg-obsidian-950/70 border-b border-white/5">
+            <div class="flex items-center justify-between text-xs mb-1.5">
+                <span id="shippingText" class="text-stone-300">Pulsuz çatdırılma üçün <strong class="text-gold-400">250 ₼</strong> qaldı</span>
+                <span id="shippingPercent" class="text-gold-400 font-semibold">0%</span>
+            </div>
+            <div class="w-full h-1.5 bg-obsidian-800 rounded-full overflow-hidden">
+                <div id="shippingBar" class="h-full bg-gradient-to-r from-gold-500 to-gold-300 transition-all duration-300" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- Cart Footer & Promo Code -->
+        <div id="cartFooter" class="p-6 border-t border-white/10 bg-obsidian-950/90 space-y-4">
+            <!-- Promo Code Input -->
+            <div class="flex gap-2">
+                <input id="promoInput" type="text" placeholder="Promo kod (məs: VIP15)" 
+                    class="flex-1 bg-obsidian-900 border border-white/10 focus:border-gold-500/60 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-stone-500 focus:outline-none uppercase">
+                <button onclick="applyPromoCode()" class="px-4 py-2.5 rounded-xl bg-obsidian-800 hover:bg-gold-500/20 border border-gold-500/30 text-gold-300 text-xs font-semibold transition-colors">
+                    Tətbiq et
+                </button>
+            </div>
+            <p id="promoFeedback" class="hidden text-xs"></p>
+
+            <!-- Totals -->
+            <div class="space-y-1.5 text-xs">
+                <div class="flex justify-between text-stone-400">
+                    <span>Ara cəm:</span>
+                    <span id="subtotalAmount" class="text-stone-200 font-medium">0 ₼</span>
+                </div>
+                <div id="discountRow" class="hidden flex justify-between text-emerald-400">
+                    <span>Promo endirim (15%):</span>
+                    <span id="discountAmount">-0 ₼</span>
+                </div>
+                <div class="flex justify-between text-stone-400">
+                    <span>Çatdırılma:</span>
+                    <span id="shippingCost" class="text-stone-200 font-medium">10 ₼</span>
+                </div>
+                <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-white/10">
+                    <span>Yekun Məbləğ:</span>
+                    <span id="totalAmount" class="text-gold-300">0 ₼</span>
+                </div>
+            </div>
+
+            <button onclick="openCheckout()" class="w-full py-3.5 rounded-full bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 text-obsidian-950 font-bold text-sm shadow-lg shadow-gold-500/20 hover:opacity-95 transition-all">
+                Sifarişi Rəsmiləşdir
+            </button>
+        </div>
+    </aside>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="relative w-full max-w-lg rounded-3xl glass-panel bg-obsidian-900 border border-gold-500/30 p-6 sm:p-8 shadow-2xl">
+            <button onclick="closeCheckout()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-obsidian-800 hover:bg-obsidian-700 flex items-center justify-center text-stone-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <div id="checkoutFormView">
+                <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Təhlükəsiz Ödəniş</span>
+                <h3 class="font-serif text-2xl font-bold text-white mt-1">Çatdırılma Məlumatları</h3>
+                <form onsubmit="submitOrder(event)" class="mt-5 space-y-4">
+                    <div>
+                        <label class="block text-xs text-stone-300 mb-1.5">Ad və Soyad *</label>
+                        <input type="text" required placeholder="Məsələn: Kamran Əliyev" 
+                            class="w-full bg-obsidian-950 border border-white/10 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-white focus:outline-none">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-stone-300 mb-1.5">Əlaqə Nömrəsi *</label>
+                            <input type="tel" required placeholder="+994 50 123 45 67" 
+                                class="w-full bg-obsidian-950 border border-white/10 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-white focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-stone-300 mb-1.5">Şəhər *</label>
+                            <select class="w-full bg-obsidian-950 border border-white/10 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-white focus:outline-none">
+                                <option>Bakı</option>
+                                <option>Sumqayıt</option>
+                                <option>Gəncə</option>
+                                <option>Digər Bölgələr</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-stone-300 mb-1.5">Ünvan *</label>
+                        <input type="text" required placeholder="Küçə, bina, mənzil..." 
+                            class="w-full bg-obsidian-950 border border-white/10 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-stone-300 mb-1.5">Ödəniş Üsulu</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center gap-2 p-3 rounded-xl bg-obsidian-950 border border-gold-500/50 cursor-pointer text-xs text-white">
+                                <input type="radio" name="payment" checked class="accent-amber-500">
+                                <span>Bank Kartı (Apple/Google Pay)</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-3 rounded-xl bg-obsidian-950 border border-white/10 cursor-pointer text-xs text-stone-300">
+                                <input type="radio" name="payment" class="accent-amber-500">
+                                <span>Qapıda Nağd / POS</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full py-3.5 rounded-full bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 text-obsidian-950 font-bold text-sm shadow-lg shadow-gold-500/25">
+                            Sifarişi Təsdiqlə (<span id="checkoutTotalDisplay">0 ₼</span>)
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Order Confirmation Screen -->
+            <div id="checkoutSuccessView" class="hidden text-center py-6 space-y-4">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 mx-auto flex items-center justify-center">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-white">Sifarişiniz Qəbul Edildi!</h3>
+                <p class="text-sm text-stone-300 max-w-sm mx-auto leading-relaxed">
+                    Təşəkkür edirik! Sifariş nömrəniz <span id="orderNumberDisplay" class="text-gold-400 font-mono font-bold">#AL-8492</span>. VIP kuryerimiz tezliklə sizinlə əlaqə saxlayacaq.
+                </p>
+                <button onclick="closeCheckout()" class="mt-4 px-8 py-3 rounded-full bg-gold-500 text-obsidian-950 font-semibold text-xs">
+                    Alış-verişə Davam Et
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-4 transition-all duration-300">
+        <div class="px-5 py-3 rounded-full glass-panel bg-obsidian-900/95 border border-gold-400/40 shadow-2xl flex items-center gap-3 text-xs sm:text-sm text-white">
+            <span class="w-2 h-2 rounded-full bg-gold-400"></span>
+            <span id="toastMessage">Məhsul səbətə əlavə edildi</span>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Curated Luxury Product Catalog
+        const products = [
+            {
+                id: 1,
+                brand: "Maison Aura Paris",
+                name: "Oud Royale Extrait de Parfum",
+                category: "Niş Ətirlər",
+                price: 355,
+                oldPrice: 420,
+                rating: 4.9,
+                reviews: 142,
+                badge: "Bestseller",
+                variants: ["50 ml", "100 ml"],
+                tags: ["Zəfəran", "Qara Ud", "Ənbər"],
+                image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=85",
+                description: "Şərqin nadir ağac notları ilə Fransız parfümeriya sənətinin vəhdəti. 18 saata qədər qalıcılıq və unudulmaz şleyf təqdim edir."
+            },
+            {
+                id: 2,
+                brand: "Valmont Genève",
+                name: "Chronographe Noir Automatique",
+                category: "Lüks Saatlar",
+                price: 1290,
+                oldPrice: 1450,
+                rating: 5.0,
+                reviews: 64,
+                badge: "Eksklüziv",
+                variants: ["40 mm", "42 mm"],
+                tags: ["İsveçrə Mexanizmi", "Safir Şüşə"],
+                image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=85",
+                description: "316L paslanmayan polad korpus, cızılmaya davamlı safir kristal şüşə və 72 saatlıq güc ehtiyatına malik avtomatik mexanizm."
+            },
+            {
+                id: 3,
+                brand: "Byredo Atelier",
+                name: "Velvet Saffron & Rose",
+                category: "Niş Ətirlər",
+                price: 290,
+                oldPrice: null,
+                rating: 4.8,
+                reviews: 98,
+                badge: "Yeni",
+                variants: ["50 ml", "100 ml"],
+                tags: ["Dəməşq Qızılgülü", "Müşk", "Berqamot"],
+                image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=85",
+                description: "Məxməri qızılgül ləçəkləri və isti ədviyyatların zərif harmoniyası. Həm gündüz, həm də xüsusi axşam dəvətləri üçün ideal seçim."
+            },
+            {
+                id: 4,
+                brand: "Aether Audio",
+                name: "Obsidian ANC Studio Pro",
+                category: "Texnologiya & Aksesuarlar",
+                price: 540,
+                oldPrice: 620,
+                rating: 4.9,
+                reviews: 87,
+                badge: "-13%",
+                variants: ["Qara / Qızılı", "Titanyum"],
+                tags: ["Aktiv Səsboğucu", "45 Saat Batareya"],
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=85",
+                description: "Təbii quzu dərisi yastıqcıqlar, anodlaşdırılmış alüminium korpus və studiya səviyyəsində Lossless akustik təcrübə."
+            },
+            {
+                id: 5,
+                brand: "Aurelia Horology",
+                name: "Tourbillon Gold Skeleton",
+                category: "Lüks Saatlar",
+                price: 1850,
+                oldPrice: null,
+                rating: 5.0,
+                reviews: 31,
+                badge: "Məhdud Sayda",
+                variants: ["41 mm"],
+                tags: ["18K Qızıl Örtük", "Açıq Mexanizm"],
+                image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=800&q=85",
+                description: "Hər bir detalı əl işi ilə yığılmış açıq skelet dizaynlı kolleksiya saatı. Timsah dərisi kəmər ilə komplektləşdirilmişdir."
+            },
+            {
+                id: 6,
+                brand: "L'Artisan Noir",
+                name: "Bois d'Ambre & Vanille",
+                category: "Niş Ətirlər",
+                price: 315,
+                oldPrice: 360,
+                rating: 4.7,
+                reviews: 115,
+                badge: null,
+                variants: ["75 ml", "125 ml"],
+                tags: ["Madaqaskar Vanili", "Səndəl Ağacı"],
+                image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=85",
+                description: "İsti kəhrəba, tüstülü səndəl ağacı və təbii Madaqaskar vanilinin hipnotik birləşməsi."
+            },
+            {
+                id: 7,
+                brand: "Montblanc Heritage",
+                name: "Saffiano Dəri Kartqabı & Qələm",
+                category: "Texnologiya & Aksesuarlar",
+                price: 265,
+                oldPrice: null,
+                rating: 4.8,
+                reviews: 53,
+                badge: "Hədiyyəlik",
+                variants: ["Qara Dəri"],
+                tags: ["İtalyan Dərisi", "RFID Qoruma"],
+                image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=85",
+                description: "Əl işi İtalyan Saffiano dərisindən hazırlanmış RFID qorumalı kartqabı və platin örtüklü imza qələmi dəsti."
+            },
+            {
+                id: 8,
+                brand: "Kronos Smart",
+                name: "Titanium Horizon Series X",
+                category: "Texnologiya & Aksesuarlar",
+                price: 690,
+                oldPrice: 780,
+                rating: 4.9,
+                reviews: 76,
+                badge: "Top Seçim",
+                variants: ["45 mm", "49 mm"],
+                tags: ["Grade 5 Titanyum", "AMOLED Safir"],
+                image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=85",
+                description: "Aerokosmik dərəcəli titanyum korpus, 14 günlük batareya ömrü və klassik saat estetikasına malik ağıllı saat."
+            }
+        ];
+
+        // Application State
+        let state = {
+            category: "Hamısı",
+            search: "",
+            onlyWishlist: false,
+            wishlist: [1, 2],
+            cart: [
+                { id: 1, variant: "100 ml", qty: 1 }
+            ],
+            promoApplied: false,
+            selectedQuickVariant: null
+        };
+
+        // Format AZN currency
+        function formatAZN(amount) {
+            return `${amount.toLocaleString('az-AZ')} ₼`;
+        }
+
+        // Show Toast Notification
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            document.getElementById("toastMessage").textContent = msg;
+            toast.classList.remove("opacity-0", "translate-y-4");
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add("opacity-0", "translate-y-4");
+            }, 2600);
+        }
+
+        // Category Selection
+        function selectCategory(cat) {
+            state.category = cat;
+            state.onlyWishlist = false;
+            updateCategoryButtons();
+            renderProducts();
+        }
+
+        function updateCategoryButtons() {
+            document.querySelectorAll(".cat-btn").forEach(btn => {
+                const isActive = !state.onlyWishlist && btn.dataset.cat === state.category;
+                if (isActive) {
+                    btn.className = "cat-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all bg-gold-500 text-obsidian-950 shadow-md shadow-gold-500/20";
+                } else {
+                    btn.className = "cat-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all bg-obsidian-800/90 text-stone-300 hover:text-white border border-white/10";
+                }
+            });
+
+            const wishBtn = document.getElementById("wishlistHeaderBtn");
+            if (state.onlyWishlist) {
+                wishBtn.classList.add("border-rose-500/60", "text-rose-400");
+            } else {
+                wishBtn.classList.remove("border-rose-500/60", "text-rose-400");
+            }
+        }
+
+        // Toggle Wishlist View
+        function toggleWishlistFilter() {
+            state.onlyWishlist = !state.onlyWishlist;
+            updateCategoryButtons();
+            renderProducts();
+            if (state.onlyWishlist) {
+                document.getElementById("kolleksiya").scrollIntoView({ behavior: "smooth" });
+            }
+        }
+
+        // Toggle Product in Wishlist
+        function toggleWishlist(id, event) {
+            if (event) event.stopPropagation();
+            const idx = state.wishlist.indexOf(id);
+            if (idx === -1) {
+                state.wishlist.push(id);
+                showToast("Seçilmişlər siyahısına əlavə edildi ♥");
+            } else {
+                state.wishlist.splice(idx, 1);
+                showToast("Seçilmişlərdən çıxarıldı");
+            }
+            updateBadges();
+            renderProducts();
+        }
+
+        // Reset All Filters
+        function resetFilters() {
+            state.category = "Hamısı";
+            state.search = "";
+            state.onlyWishlist = false;
+            document.getElementById("desktopSearch").value = "";
+            document.getElementById("mobileSearch").value = "";
+            document.getElementById("sortSelect").value = "popular";
+            updateCategoryButtons();
+            renderProducts();
+        }
+
+        // Render Product Cards
+        function renderProducts() {
+            const sortBy = document.getElementById("sortSelect").value;
+            const query = state.search.trim().toLowerCase();
+
+            let filtered = products.filter(p => {
+                const matchCat = state.category === "Hamısı" || p.category === state.category;
+                const matchWish = !state.onlyWishlist || state.wishlist.includes(p.id);
+                const matchSearch = !query || 
+                    p.name.toLowerCase().includes(query) || 
+                    p.brand.toLowerCase().includes(query) ||
+                    p.tags.some(t => t.toLowerCase().includes(query));
+                return matchCat && matchWish && matchSearch;
+            });
+
+            if (sortBy === "price-asc") {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortBy === "price-desc") {
+                filtered.sort((a, b) => b.price - a.price);
+            }
+
+            const grid = document.getElementById("productGrid");
+            const empty = document.getElementById("emptyState");
+            const counter = document.getElementById("resultsCounter");
+            const resetBtn = document.getElementById("resetFiltersBtn");
+
+            const isFiltered = state.category !== "Hamısı" || query !== "" || state.onlyWishlist;
+            resetBtn.classList.toggle("hidden", !isFiltered);
+
+            counter.textContent = state.onlyWishlist 
+                ? `Seçilmişlər: ${filtered.length} məhsul` 
+                : `${filtered.length} eksklüziv məhsul göstərilir`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = "";
+                empty.classList.remove("hidden");
+                return;
+            }
+
+            empty.classList.add("hidden");
+            grid.innerHTML = filtered.map(product => {
+                const isWished = state.wishlist.includes(product.id);
+                return `
+                <article class="group glass-panel rounded-3xl overflow-hidden flex flex-col justify-between hover:border-gold-400/40 hover:-translate-y-1.5 transition-all duration-300 shadow-lg shadow-black/40">
+                    <div>
+                        <!-- Image Box -->
+                        <div onclick="openQuickView(${product.id})" class="relative aspect-[4/4.3] bg-obsidian-900 overflow-hidden cursor-pointer">
+                            <img src="${product.image}" 
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x650/15171E/E2C285?text=${encodeURIComponent(product.brand)}';"
+                                 alt="${product.name}" 
+                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950/90 via-transparent to-obsidian-950/20"></div>
+                            
+                            <!-- Top Badges -->
+                            <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                                ${product.badge 
+                                    ? `<span class="px-3 py-1 rounded-full bg-obsidian-950/85 backdrop-blur-md border border-gold-400/30 text-gold-300 text-[11px] font-semibold">${product.badge}</span>` 
+                                    : `<span></span>`}
+                                <button onclick="toggleWishlist(${product.id}, event)" aria-label="Seçilmişlərə əlavə et"
+                                    class="w-9 h-9 rounded-full bg-obsidian-950/75 backdrop-blur-md border border-white/10 flex items-center justify-center transition-transform active:scale-90 ${isWished ? 'text-rose-500' : 'text-stone-300 hover:text-white'}">
+                                    <svg class="w-4 h-4" fill="${isWished ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Quick View Hover Pill -->
+                            <div class="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                <span class="w-full py-2 rounded-xl bg-obsidian-950/90 backdrop-blur-md border border-gold-400/30 text-gold-300 text-xs font-medium flex items-center justify-center gap-1.5">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                    </svg>
+                                    Sürətli Baxış
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="p-5 pb-3">
+                            <div class="flex items-center justify-between text-[11px] text-stone-400">
+                                <span class="uppercase tracking-wider text-gold-400/90 font-semibold">${product.brand}</span>
+                                <span class="flex items-center gap-1 text-amber-300">
+                                    ★ ${product.rating} <span class="text-stone-500">(${product.reviews})</span>
+                                </span>
+                            </div>
+                            <h3 onclick="openQuickView(${product.id})" class="font-serif text-lg font-semibold text-white mt-1.5 group-hover:text-gold-300 transition-colors cursor-pointer line-clamp-1">
+                                ${product.name}
+                            </h3>
+                            <div class="flex flex-wrap gap-1.5 mt-2.5">
+                                ${product.tags.map(tag => `<span class="text-[10px] px-2 py-0.5 rounded-md bg-white/5 text-stone-300 border border-white/5">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Price & Add Button -->
+                    <div class="px-5 pb-5 pt-3 flex items-center justify-between border-t border-white/5 mt-2">
+                        <div>
+                            ${product.oldPrice ? `<span class="text-xs text-stone-500 line-through block">${formatAZN(product.oldPrice)}</span>` : ''}
+                            <span class="text-lg font-bold text-white">${formatAZN(product.price)}</span>
+                        </div>
+                        <button onclick="addToCart(${product.id})" class="px-4 py-2.5 rounded-full bg-gold-500/15 hover:bg-gold-500 text-gold-300 hover:text-obsidian-950 border border-gold-500/40 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                            Səbətə at
+                        </button>
+                    </div>
+                </article>
+                `;
+            }).join('');
+        }
+
+        // Quick View Modal
+        function openQuickView(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+            state.selectedQuickVariant = product.variants[0];
+
+            const content = document.getElementById("quickViewContent");
+            content.innerHTML = `
+                <div class="relative aspect-square md:aspect-auto bg-obsidian-950">
+                    <img src="${product.image}" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x650/15171E/E2C285?text=${encodeURIComponent(product.brand)}';"
+                         alt="${product.name}" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 sm:p-8 flex flex-col justify-between space-y-5">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">${product.brand} • ${product.category}</span>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-1.5">${product.name}</h2>
+                        <div class="flex items-center gap-3 mt-2">
+                            <span class="text-2xl font-bold text-gold-300">${formatAZN(product.price)}</span>
+                            ${product.oldPrice ? `<span class="text-sm text-stone-500 line-through">${formatAZN(product.oldPrice)}</span>` : ''}
+                        </div>
+                        <p class="text-stone-300 text-xs sm:text-sm leading-relaxed mt-4">${product.description}</p>
+
+                        <!-- Variant Selector -->
+                        <div class="mt-5">
+                            <span class="block text-xs text-stone-400 mb-2">Ölçü / Seçim:</span>
+                            <div class="flex flex-wrap gap-2" id="quickVariantButtons">
+                                ${product.variants.map((v, i) => `
+                                    <button onclick="selectQuickVariant('${v}', this)" 
+                                        class="qv-var-btn px-4 py-2 rounded-xl text-xs font-medium border transition-all ${i === 0 ? 'bg-gold-500 text-obsidian-950 border-gold-500 font-bold' : 'bg-obsidian-800 text-stone-300 border-white/10 hover:border-gold-400/50'}">
+                                        ${v}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10 flex gap-3">
+                        <button onclick="addToCart(${product.id}, state.selectedQuickVariant); closeQuickView();" 
+                            class="flex-1 py-3.5 rounded-full bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 text-obsidian-950 font-bold text-xs sm:text-sm shadow-lg shadow-gold-500/20">
+                            Səbətə Əlavə Et
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById("quickViewModal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function selectQuickVariant(variant, btnEl) {
+            state.selectedQuickVariant = variant;
+            document.querySelectorAll(".qv-var-btn").forEach(b => {
+                b.className = "qv-var-btn px-4 py-2 rounded-xl text-xs font-medium border transition-all bg-obsidian-800 text-stone-300 border-white/10 hover:border-gold-400/50";
+            });
+            btnEl.className = "qv-var-btn px-4 py-2 rounded-xl text-xs border transition-all bg-gold-500 text-obsidian-950 border-gold-500 font-bold";
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById("quickViewModal");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+
+        // Cart Logic
+        function addToCart(id, variant = null) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+            const chosenVariant = variant || product.variants[0];
+
+            const existing = state.cart.find(item => item.id === id && item.variant === chosenVariant);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                state.cart.push({ id, variant: chosenVariant, qty: 1 });
+            }
+
+            updateCartUI();
+            showToast(`"${product.name}" səbətə əlavə edildi`);
+        }
+
+        function updateCartQty(index, delta) {
+            state.cart[index].qty += delta;
+            if (state.cart[index].qty <= 0) {
+                state.cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function removeCartItem(index) {
+            state.cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function applyPromoCode() {
+            const code = document.getElementById("promoInput").value.trim().toUpperCase();
+            const feedback = document.getElementById("promoFeedback");
+            feedback.classList.remove("hidden");
+
+            if (code === "VIP15") {
+                state.promoApplied = true;
+                feedback.textContent = "✓ VIP15 promo kodu aktivləşdirildi (15% endirim)!";
+                feedback.className = "text-xs text-emerald-400";
+                updateCartUI();
+            } else {
+                state.promoApplied = false;
+                feedback.textContent = "✕ Yanlış promo kod. Nümunə: VIP15";
+                feedback.className = "text-xs text-rose-400";
+                updateCartUI();
+            }
+        }
+
+        function updateBadges() {
+            const totalItems = state.cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById("cartCountBadge").textContent = totalItems;
+
+            const wishBadge = document.getElementById("wishlistBadge");
+            if (state.wishlist.length > 0) {
+                wishBadge.textContent = state.wishlist.length;
+                wishBadge.classList.remove("hidden");
+            } else {
+                wishBadge.classList.add("hidden");
+            }
+        }
+
+        function updateCartUI() {
+            updateBadges();
+            const container = document.getElementById("cartItemsContainer");
+            const footer = document.getElementById("cartFooter");
+            const totalItems = state.cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById("cartDrawerSubtitle").textContent = `Səbətinizdə ${totalItems} məhsul var`;
+
+            if (state.cart.length === 0) {
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12">
+                        <div class="w-16 h-16 rounded-full bg-obsidian-800 flex items-center justify-center text-stone-500 mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                            </svg>
+                        </div>
+                        <p class="font-serif text-lg text-white">Səbətiniz hazırda boşdur</p>
+                        <p class="text-xs text-stone-400 mt-1">Kolleksiyadan bəyəndiyiniz məhsulları əlavə edin.</p>
+                    </div>
+                `;
+                footer.classList.add("hidden");
+                updateShippingBar(0);
+                return;
+            }
+
+            footer.classList.remove("hidden");
+            let subtotal = 0;
+
+            container.innerHTML = state.cart.map((item, idx) => {
+                const product = products.find(p => p.id === item.id);
+                const lineTotal = product.price * item.qty;
+                subtotal += lineTotal;
+
+                return `
+                <div class="flex gap-3.5 p-3 rounded-2xl bg-obsidian-950/80 border border-white/5">
+                    <img src="${product.image}" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/120x120/15171E/E2C285?text=AURA';"
+                         alt="${product.name}" class="w-20 h-20 rounded-xl object-cover shrink-0">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex justify-between items-start gap-2">
+                            <h4 class="font-serif text-sm font-semibold text-white truncate">${product.name}</h4>
+                            <button onclick="removeCartItem(${idx})" class="text-stone-500 hover:text-rose-400 text-xs">✕</button>
+                        </div>
+                        <p class="text-[11px] text-gold-400 mt-0.5">${product.brand} • ${item.variant}</p>
+                        <div class="flex items-center justify-between mt-3">
+                            <div class="flex items-center gap-2 bg-obsidian-900 rounded-lg border border-white/10 px-2 py-1">
+                                <button onclick="updateCartQty(${idx}, -1)" class="w-5 h-5 text-stone-300 hover:text-white font-bold">-</button>
+                                <span class="text-xs font-semibold text-white px-1">${item.qty}</span>
+                                <button onclick="updateCartQty(${idx}, 1)" class="w-5 h-5 text-stone-300 hover:text-white font-bold">+</button>
+                            </div>
+                            <span class="text-sm font-bold text-gold-300">${formatAZN(lineTotal)}</span>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            const discount = state.promoApplied ? Math.round(subtotal * 0.15) : 0;
+            const afterDiscount = subtotal - discount;
+            const shipping = afterDiscount >= 250 ? 0 : 10;
+            const finalTotal = afterDiscount + shipping;
+
+            document.getElementById("subtotalAmount").textContent = formatAZN(subtotal);
+            
+            const discountRow = document.getElementById("discountRow");
+            if (state.promoApplied) {
+                discountRow.classList.remove("hidden");
+                document.getElementById("discountAmount").textContent = `-${formatAZN(discount)}`;
+            } else {
+                discountRow.classList.add("hidden");
+            }
+
+            document.getElementById("shippingCost").textContent = shipping === 0 ? "PULSUZ" : formatAZN(shipping);
+            document.getElementById("totalAmount").textContent = formatAZN(finalTotal);
+            document.getElementById("checkoutTotalDisplay").textContent = formatAZN(finalTotal);
+
+            updateShippingBar(afterDiscount);
+        }
+
+        function updateShippingBar(amount) {
+            const threshold = 250;
+            const pct = Math.min(100, Math.round((amount / threshold) * 100));
+            document.getElementById("shippingBar").style.width = `${pct}%`;
+            document.getElementById("shippingPercent").textContent = `${pct}%`;
+
+            const textEl = document.getElementById("shippingText");
+            if (amount >= threshold) {
+                textEl.innerHTML = `<span class="text-emerald-400 font-semibold">🎉 Təbriklər! Pulsuz VIP çatdırılma qazandınız</span>`;
+            } else {
+                const rem = threshold - amount;
+                textEl.innerHTML = `Pulsuz çatdırılma üçün <strong class="text-gold-400">${formatAZN(rem)}</strong> qaldı`;
+            }
+        }
+
+        // Drawer & Checkout Controls
+        function openCart() {
+            document.getElementById("cartOverlay").classList.remove("hidden");
+            document.getElementById("cartDrawer").classList.remove("translate-x-full");
+        }
+
+        function closeCart() {
+            document.getElementById("cartOverlay").classList.add("hidden");
+            document.getElementById("cartDrawer").classList.add("translate-x-full");
+        }
+
+        function openCheckout() {
+            closeCart();
+            document.getElementById("checkoutFormView").classList.remove("hidden");
+            document.getElementById("checkoutSuccessView").classList.add("hidden");
+            const modal = document.getElementById("checkoutModal");
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function closeCheckout() {
+            const modal = document.getElementById("checkoutModal");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+
+        function submitOrder(e) {
+            e.preventDefault();
+            const randomOrderNum = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById("orderNumberDisplay").textContent = `#AL-${randomOrderNum}`;
+            document.getElementById("checkoutFormView").classList.add("hidden");
+            document.getElementById("checkoutSuccessView").classList.remove("hidden");
+            state.cart = [];
+            state.promoApplied = false;
+            updateCartUI();
+        }
+
+        // Sync Desktop & Mobile Search Inputs
+        document.getElementById("desktopSearch").addEventListener("input", (e) => {
+            state.search = e.target.value;
+            document.getElementById("mobileSearch").value = state.search;
+            renderProducts();
+        });
+
+        document.getElementById("mobileSearch").addEventListener("input", (e) => {
+            state.search = e.target.value;
+            document.getElementById("desktopSearch").value = state.search;
+            renderProducts();
+        });
+
+        // Initialize Storefront
+        window.addEventListener("DOMContentLoaded", () => {
+            renderProducts();
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>
